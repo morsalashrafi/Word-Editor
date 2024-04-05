@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./style.css">
+        <title>Text Editor</title>
+    </head>
+
+    <body>
+        <div class="text-editor">
+            <h1> Word-Editor</h1>
+        </div>
+        
+        <section class="editor-container container">
+            <div class="editor-header-top">
+
+                <button id="bold-button" onclick="toggleBold()">
+                    <img width="48" height="48"
+                        src="https://img.icons8.com/color/48/bold.png"
+                        alt="bold" />
+                </button>
+                <button id="italic-button" onclick="toggleItalic()">
+                    <img width="48" height="48"
+                        src="https://img.icons8.com/color/48/italic.png"
+                        alt="italic" />
+                </button>
+                <button id="header-button" onclick="setHeaderSize()">
+                    <img width="48" height="48"
+                        src="https://img.icons8.com/color/48/header--v1.png"
+                        onmouseover="showHeaders()" alt="header--v1" />
+                    <div class="headers">
+                        <h1 class="H" onclick="setHeaderSize(1)">H1 </h1>
+                        <h2 class="H" onclick="setHeaderSize(2)">H2</h2>
+                        <h3 class="H" onclick="setHeaderSize(3)">H3 </h3>
+                        <h4 class="H" onclick="setHeaderSize(4)">H4 </h4>
+                        <h5 class="H" onclick="setHeaderSize(5)">H5 </h5>
+                        <h6 class="H" onclick="setHeaderSize(6)">H6 </h6>
+                    </div>
+                </button>
+                <button id="fontListButton">
+                    <img width="48" height="48"
+                        src="https://img.icons8.com/color/48/choose-font.png"
+                        alt="choose-font" />
+                    <ul id="fontList">
+                        <li data-font="cursive">cursive</li>
+                        <li data-font="monospace">monospace</li>
+                        <li data-font="fantasy">fantasy</li>
+                        <li data-font="cambria">cambria</li>
+                        <li data-font="Georgia">Georgia</li>
+                    </ul>
+                </button>
+                <button onclick="increaseFontSize()">
+                    <img width="48" height="48"
+                        src="https://img.icons8.com/color/48/increase-font.png"
+                        alt="increase-font" />
+                </button>
+                <button onclick="decreaseFontSize()">
+                    <img width="48" height="48"
+                        src="https://img.icons8.com/color/48/decrease-font.png"
+                        alt="decrease-font" />
+                </button>
+                <button id="alignButtonLeft">
+                    <img width="48" height="48"
+                        src="https://img.icons8.com/color/48/align-left.png"
+                        alt="align-left" />
+                </button>
+                <button id="alignButtonRight">
+                    <img width="48" height="48"
+                        src="https://img.icons8.com/color/48/align-right.png"
+                        alt="align-right" />
+                </button>
+                <button id="alignButtonCenter">
+                    <img width="48" height="48"
+                        src="https://img.icons8.com/color/48/align-center--v1.png"
+                        alt="align-center--v1" />
+                </button>
+
+                <button id="alignRightButton" class="rtl">
+                    <img width="48" height="48"
+                        src="https://img.icons8.com/color/48/align-cell-content-right.png"
+                        alt="align-cell-content-right" />
+                </button>
+                <button id="alignLeftButton" class="ltr">
+                    <img width="48" height="48"
+                        src="https://img.icons8.com/color/48/align-cell-content-left.png"
+                        alt="align-cell-content-left" />
+                </button>
+
+                <button id="addCircleButton">
+                    <img width="50" height="50"
+                        src="https://img.icons8.com/ios-filled/50/bulleted-list.png"
+                        alt="bulleted-list" />
+                </button>
+                <button id="numberedButton">
+                    <img width="50" height="50"
+                        src="https://img.icons8.com/ios/50/numbered-list.png"
+                        alt="numbered-list" />
+                </button>
+
+                <button id="colorButton">
+                    <img width="48" height="48"
+                        src="https://img.icons8.com/color/48/rgb-circle-1--v1.png"
+                        alt="rgb-circle-1--v1" />
+                    <input type="color" id="colorPicker" style="display: none;">
+                </button>
+                <button onclick="highlightWord()">
+                    <img width="48" height="48"
+                        src="https://img.icons8.com/color/48/marker-pen.png"
+                        alt="marker-pen" />
+
+                </button>
+
+                <button id="replayButton">
+                    <img width="48" height="48"
+                        src="https://img.icons8.com/color/48/recurring-appointment.png"
+                        alt="recurring-appointment" />
+                </button>
+                <button id="clearButton">
+                    <img width="48" height="48"
+                        src="https://img.icons8.com/color/48/replay.png"
+                        alt="replay" />
+                </button>
+                <button>
+                    <h2 id="moveButtonSub">X<sub>1</sub></h2>
+                </button>
+                <button>
+                    <h2 id="moveButtonSup">X<sup>1</sup></h2>
+                </button>
+                <button id="add-link-button">
+                    <img width="48" height="48"
+                        src="https://img.icons8.com/color/48/add-link.png"
+                        alt="add-link" />
+                </button>
+                <button id="delete-link-button">
+                    <img width="48" height="48"
+                        src="https://img.icons8.com/color/48/delete-link.png"
+                        alt="delete-link" />
+                </button>
+
+            </div>
+
+            <div>
+
+                <div contenteditable="true" id="textarea"
+                    style="font-size: 16px;"></div>
+                <div class="count">
+                    <span id="counter">300</span>
+                    <span> / 300</span>
+                </div>
+            </div>
+        </section>
+
+        <script src="./main.js"></script>
+
+    </body>
+
+</html>
